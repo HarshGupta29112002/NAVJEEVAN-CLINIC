@@ -1,0 +1,179 @@
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
+body {
+    background-color: rgb(223, 233, 235);
+    background-image: url('../img/background image.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+form{
+    background-color: white;
+    padding: 5px;
+    justify-content: center;
+
+
+}
+.a1{
+    padding: 20px;
+}
+.b1{
+    padding: 20px;
+    color: red;
+    text-align: center;
+}
+.b2{
+    line-height: 25px;
+    padding: 10px;
+    text-align: left;
+    float: left;       
+}
+.b3{
+    line-height: 25px;
+    padding: 10px;
+    text-align: right;
+    float: right;
+}
+img {
+    margin: -13px;
+    padding: 16px;
+}
+
+.right{
+    float: right;
+    width: 33%;
+}
+
+.L1{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.L2{
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.complain{
+    /* display: flex; */
+    /* width: 200; */
+    /* padding: 5px; */
+    padding-top: 5px;
+    padding-bottom: 5px;
+    /* box-sizing: border-box; */
+}
+.bp{
+    /* float: left; */
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.advice{
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.table{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    /* display: inline-block; */
+    border: 0px solid black;
+    text-align: center;
+    float: left; 
+    margin-left: 31px;
+}
+
+.payment{
+    
+    padding-top: 5px;
+    padding-bottom: 10px;
+    display: flexbox;
+    border: 0px solid black;
+    
+
+}
+/* table{
+    border-collapse: collapse;
+} */
+
+/* td{
+    text-align: center;
+} */
+
+/* .button{ */
+    
+    /* padding-top: 1150px; */
+    /* margin-top: 10px; */
+    /* text-align: center; */
+
+    /* height: 350px;
+    position: relative;
+    margin-left: 150px; */
+
+    /* height: 200px; */
+    /* position: static;
+    border: 3px solid green;  */
+    /* border: 3px solid green;  */
+/* } */
+
+/* .vertical-button{ */
+
+    /* margin: 0;
+    position: absolute;
+    top: 70%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%); */
+
+    /* margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+} */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

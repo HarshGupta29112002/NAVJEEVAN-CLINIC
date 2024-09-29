@@ -1,0 +1,131 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    {% load static %}
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&display=swap');
+
+body{
+    {% comment %} background: rgba(3, 172, 240, 0.2); {% endcomment %}
+    background-image: url({% static "img/background image.png" %});
+    {% comment %} background-opacity:0.5; {% endcomment %}
+    {% comment %} background-image: url("clinic/static/img/background image.png"); {% endcomment %}
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    display: grid;
+    }
+
+table, th, td {
+  border: 2px solid black;
+  border-collapse: collapse;
+  padding:5px;
+}
+
+table{
+    position:;
+    margin:10px;
+}
+
+th{
+    padding:15px;
+}
+
+.navbar{
+    
+    background:	#DC143C;
+    font-family: calibri;
+    padding-right: 15px;
+    padding-left: 15px;
+
+}
+.navdiv {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.logo a {
+    text-decoration: none;
+    font-size: 35px;
+    font-weight: 600;
+    color: white;
+    font-family: "Old Standard TT", serif;
+    font-style: italic;
+}
+
+li {
+    list-style: none;
+    display: inline-block;
+}
+li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    margin-right: 25px;
+}
+
+</style>
+
+
+</head>
+
+
+
+
+
+
+
+<body>
+    <nav class="navbar">
+        <div class="navdiv">
+            <div class="logo"><a href="{% url 'home' %}"><i class="fa fa-user-md"></i>  NAVJEEVAN</a></div>
+            <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'patient_createview' %}">Add Patient</a></li>
+                {% comment %} <li><a href="#">Update Patient</a></li>
+                <li><a href="#">Delete Patient</a></li>
+                <li><a href="#">Add Visit</a></li> {% endcomment %}
+                {% comment %} <li><a href="#"><i class="fa fa-fw fa-search"></i></li> {% endcomment %}
+            </ul>
+        </div>
+
+    </nav>
+
+
+    <table>
+        <thead style="border:2px solid black; font-size:20px;">
+            <tr>
+                <th> DATE </th>
+                <th > ID </th>
+                <th > NAME </th>
+                <th > PAID </th>
+                <th > BALANCE </th>
+                <th > TOTAL </th>
+                <th > CONTACT </th>
+
+            <tr>
+        </thead>
+        <tbody style = "text-align:center;">
+            {% for item in patient %}
+            <tr>
+                <td > {{item.date}} </td>
+                <td > {{item.id}} </td>
+                <td > {{item.name}} </td>
+                <td > {{item.Paid_amount}} </td>
+                <td > {{item.Balance_amount}} </td>
+                <td > {{item.Total_amount}} </td>
+                <td > {{item.mobile_number}} </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+</body>
+</html>

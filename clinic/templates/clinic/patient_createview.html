@@ -1,0 +1,223 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>clinicweb</title>
+    {% load static %}
+    <link rel = "stylesheet" href = "{% static 'css/patient_createview.css' %}"/>
+</head>
+
+<body>
+
+    <form action="{% url 'patient_createview' %}" method="post" enctype="multipart/form-data">
+
+        {% csrf_token %} 
+
+        <div class="a1">            <!--*************************__________section-1__________**************************-->
+            <div class="b1">
+                <h1><u>NAVJEEVAN HEALTH CENTER</u></h1>
+            </div>
+
+            <img src="{% static 'img/dr logo.png' %}" alt="logo">
+            <div class="b2">
+                <tr>
+                    <th><h3>DR. A.G. GUPTA</h3></th>
+                    <th><h3>M.B.B.S.(MUM.)</h3></th>
+                    <th><h3>C.C.H.,C.G.O.(MUM.)</h3></th>
+                    <th><h3>P.G.D.C.R.A.,P.G.D.M.L.C.(MUM.)</h3></th>
+                    <th><h3>CCEB.DM. (DIABETOLOGIST.)</h3></th>
+                </tr>
+            </div>
+            <div class="b3">
+                <tr>
+                    <th><h3>DR. U.S. GUPTA</h3></th>
+                    <th><h3>B.A.M.S.(MUM.)</h3></th>
+                    <th><h3>C.C.H.,C.G.O.(MUM.)</h3></th>
+                    <th><h3>MOBILE NO: -7977008341</h3></th>
+                    <th><h3><b><span style="color: red;">Date: </span></b>{{form.date}}</h3></th>
+                </tr>
+            </div>  
+        </div>
+        
+        <div class="a2">                <!--*************************__________section-2__________**************************-->
+
+            <hr style="background-color: black;height: 0.8px;border-width: 0;">
+
+            <p style="text-align: center;padding-top: 5px;"><b><span style="color: red;">ADDRESS</span></b>:-SHOP NO 13. L/6 WARD, DINDOSHI BMC COLONY, SANTOSH </p>
+            <p style="text-align: center;padding-bottom: 5px;">NAGAR, GOREGAON(EAST).MUMBAI:-400065.</p>
+            <!-- <p style="text-align: center;padding-bottom: 15px;">MOBILE NO:- 7977008341.</p> -->
+
+            <hr style="background-color: black;height: 0.8px;border-width: 0;">
+
+        </div>
+
+        <div class="a3">                <!--*************************__________section-3__________**************************-->
+
+            {% comment %} {% csrf_token %} {% endcomment %}
+        
+            <div class="L1">                       <!--*************************__________section-3(line_1)__________**************************-->
+                <b><span style="color: red; float: left; margin-left: 31px;">ID : </span></b>{{form.id}}
+                <b style="float: right; margin-right: 30px;"> <span style="color: red;">CONTACT NO : </span> {{form.mobile_number}} </b>
+
+                <script>
+                    document.querySelector('input[name="mobile_number"]').size = 15;       {% comment %} This will increase the size of form.Advice {% endcomment %}
+                </script>
+            </div>
+
+            <h3 style="color: red;text-align: center;"><u>*ALL TYPES OF BLOOD TEST/VACCINE DONE HER*</u></h3>
+            <br>
+
+            <div class="L2">                       <!--*************************__________section-3(line_2)__________**************************-->
+                <b><span style="color: red; float: left; margin-left: 31px;">NAME : </span>{{form.name}}</b>
+                <b><span style="color: red;">AGE : </span>{{form.age}}</b>
+                <b><span style="color: red;">SEX : </span>{{form.sex}}</b>
+                <b><span style="color: red;">WEIGHT : </span>{{form.weight}}</b>
+                <script>
+                    document.querySelector('input[name="name"]').size = 20;       {% comment %} This will increase the size of form.Advice {% endcomment %}
+                    document.querySelector('input[name="age"]').size = 7;       {% comment %} This will increase the size of form.Advice {% endcomment %}
+                    document.querySelector('input[name="weight"]').size = 7;       {% comment %} This will increase the size of form.Advice {% endcomment %}
+                </script>
+            </div>
+
+        
+            <div class="complain">          <!-- ******************************************************************** -->
+                
+                <b><span style="color: red; float: left; margin-left: 31px;">COMPLAIN : </span> {{form.Complain}}</b>
+
+                <script>
+                    document.querySelector('input[name="Complain"]').size = 60;       {% comment %} This will increase the size of form.Advice {% endcomment %}
+                </script>
+            
+            </div>
+
+
+
+            <!-- <div class="image-container">       **************************______________Image-container_____________******************************
+                <img src="{{form.photo}} " >
+                <input type="file" name="photo">
+                <input type="submit" value="Upload">
+            </div> -->
+
+            <div class="bp">           <!-- ******************************************************************** -->
+
+                <b><span style="color: red; float: left; margin-left: 31px;">BP : </span>{{form.BP}}</b>
+                <b><span style="color: red;">PR : </span>{{form.PR}}</b>
+                <b><span style="color: red;">SPO2 : </span>{{form.SPO2}}</b>
+                <b><span style="color: red;">TEMP : </span>{{form.Temp}}</b>
+
+                <script>
+                    document.querySelector('input[name="BP"]').size = 7;       {% comment %} This will increase the size of form.Advice {% endcomment %}
+                    document.querySelector('input[name="PR"]').size = 7;       {% comment %} This will increase the size of form.Advice {% endcomment %}
+                </script>
+
+            </div>
+
+            <div class = "advice">
+
+                <b><span style="color: red; float: left; margin-left: 31px;">ADVICE : </span> {{form.Advice}}</b>
+
+                <script>
+                    document.querySelector('input[name="Advice"]').size = 60;       {% comment %} This will increase the size of form.Advice {% endcomment %}
+                </script>
+
+            </div>
+            <div class="table">
+                <table>
+                    <thead>
+                        <tr style="color: red;">
+                            <th> Sr. </th>
+                            <th> MEDICINE </th>
+                            <th> DURATION </th>
+                            <th> DAYS </th> 
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td> <input type="number" min="1" max="9" name="sr"> </td>
+                            <td> <span type="text" name="Medicine" > {{ form.Medicine }} </span> </td>
+                            {% comment %} <td> <input type="text" name="Medicine" value="{{ form.Medicine }}"> {{ form.Medicine }} </td> {% endcomment %}
+                            <td> <span type="text" name="Duration" > {{ form.Duration }} </span> </td>
+                            <td> <span type="number" name="Days" > {{ form.Days }} </span> </td>
+                            <td> <button class="add-button"> ADD </button> </td>
+                        </tr>
+                    </tbody>
+                    <script>
+                        document.querySelector('input[name="Medicine"]').size = 55;       
+                        document.querySelector('input[name="Duration"]').size = 25;       
+                        document.querySelector('input[name="Days"]').size = 1;       
+
+                        const tableBody = document.querySelector('tbody');
+
+                        document.querySelectorAll('.add-button').forEach(button => {
+                            button.addEventListener('click', () => {
+                                const newRow = document.createElement('tr');
+                                newRow.innerHTML = `
+                                    <td> <input type="number" min="1" max="9" name="sr"> </td>
+                                    <td> <span type="text" name="Medicine" > {{ form.Medicine }} </span> </td>                                    
+                                    <td> <span type="text" name="Duration" > {{ form.Duration }} </span> </td>
+                                    <td> <span type="number" name="Days" > {{ form.Days }} </span> </td>                                                      
+                                `;
+
+                                // Set the size of the input fields using JavaScript
+                                const medicineInput = newRow.querySelector('input[name="Medicine"]');
+                                medicineInput.size = 55;
+
+                                const durationInput = newRow.querySelector('input[name="Duration"]');
+                                durationInput.size = 25;
+
+                                const daysInput = newRow.querySelector('input[name="Days"]');
+                                daysInput.size = 1;
+
+                                tableBody.appendChild(newRow);
+                            });
+                        });                       
+                    </script>
+                </table>
+            </div>
+            <div class="payment">
+                <table style="float: left; margin-left: 31px;">
+                    <thead>
+                        <tr style="color: red;">
+                            <th> PAYMENT </th>
+                            <th> UPI/ONLINE </th>
+                            <th> CASH </th>                             
+                            <th> TOTAL AMOUNT </th>                             
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="color: red;"><b> <span> PAID AMOUNT </span> </b></td>
+                            <td> <span> {{ form.Online_payment }} </span> </td>
+                            <td> <span> {{ form.Cash_payment }} </span> </td>
+                            <td> <span> {{ form.Paid_amount }} </span> </td>
+                        </tr>
+                        
+                        <tr>
+                            <td style="color: red;"><b> <span> BALANCED AMOUNT </span> </b></td>
+                            <td> <span> 0 </span> </td>
+                            <td> <span> 0 </span> </td>
+                            <td> <span> {{ form.Balance_amount }} </span> </td>
+                        </tr>
+
+                        <tr>
+                            <td style="color: red;"><b> <span> TOTAL AMOUNT </span> </b></td>
+                            <td> <span> {{ form.Online_payment }} </span> </td>
+                            <td> <span> {{ form.Cash_payment }} </span> </td>
+                            <td> <span> {{ form.Total_amount }} </span> </td>
+                        </tr>
+                    </tbody>
+                    <br>
+                    
+                </table>
+            </div>
+        </div>
+        <br>
+        <div style="position: fixed; bottom: 0; left: 50%; transform: translateX(-50%); text-align: center;">
+            <input type="submit" value="Submit">
+        </div>
+        
+    </form>    
+</body>
+</html>
