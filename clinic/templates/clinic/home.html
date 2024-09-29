@@ -109,6 +109,8 @@ li a {
                 <th > BALANCE </th>
                 <th > TOTAL </th>
                 <th > CONTACT </th>
+                <th > UPDATE </th>
+                <th > DELETE </th>
 
             <tr>
         </thead>
@@ -122,6 +124,8 @@ li a {
                 <td > {{item.Balance_amount}} </td>
                 <td > {{item.Total_amount}} </td>
                 <td > {{item.mobile_number}} </td>
+                <td> <a href="{% url 'patient_update' id=item.id %}">Update Profile</a> </td>
+                <td> <a href="{% url 'patient_delete' id=item.id %}">Delete Profile</a> </td>
             </tr>
             {% endfor %}
         </tbody>
