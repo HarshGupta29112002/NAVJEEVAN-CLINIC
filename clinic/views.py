@@ -25,19 +25,29 @@ from django.views.generic import DeleteView
 from .forms import PatientUpdateForm
 
 #models
-from .models import patient
+from .models import patient, doctor
 
 # Create your views here.
 
-# def create_patient(request):
-#     if request.method == 'POST':
-#         form = PatientUpdateForm(request.POST)
-#         if form.is_valid():
-#             form.save()
-#             return redirect('patient_list')
-#     else:
-#         form = PatientUpdateForm()
-#     return render(request, 'patient_createview.html', {'form': form})
+doctor_data = None
+
+def index(request):
+    data = doctor.objects.all()
+    shopkeeper_data = {
+        "username": data[0].username, 
+        "password": data[0].password, 
+    }
+        
+    if request.POST:
+        print(request.POST)
+        username = request.POST['UserName']
+        password = request.POST['password']
+        if username == doctor_data['username'] and password == doctor_data['password']:
+            return redirect('/doctor')
+            
+        
+    return render(request ,"clinic\Login.html")
+
 
 
 def create_patient(request):

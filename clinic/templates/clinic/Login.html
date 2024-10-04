@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOGIN</title>
+    {% load static %}
+    <style>
+      body{
+        {% comment %} background-image: url({% static "img\background image.jpg" %}); {% endcomment %}
+        background-image: url(https://media.istockphoto.com/id/1345222226/photo/champagne-beige-earth-color-gradient-background.jpg?s=612x612&w=0&k=20&c=QuWuOispyvPKDSsRiTHqEHq3f5tqn9SPbSj_U8JiZbg=);
+            background-repeat: no-repeat;
+            background-size: cover;
+      }
+        .b{
+            position: absolute;
+            content-align:center;
+            left: 50rem;
+            top: 10rem;
+        }
+        
+        .for{
+            background-color: rgb(54, 49, 201);
+            border: 5px solid rgb(0, 255, 145);
+            font-size: 40px;
+            padding: 30px;
+            margin: 10px;
+        }
+        input{
+            font-size: 20px;
+            margin: 10px;
+        }
+        .submit{
+            margin-left:200px;
+            margin-top: 25px;
+            font-size: 30px;
+            background-color: greenyellow;
+            border-radius: 10px;
+            border: 5px solid red;
+        }
+    </style>
+</head>
+<body>    
+    <form class="b" method="post">
+        {% csrf_token %} 
+        <h1>Login</h1>
+        <div class="for">
+        UserName:-&nbsp;&nbsp; <input type="text" name="UserName"><br><br>
+        Password:-&nbsp;&nbsp; <input type="password" name="password"><br>
+        <!-- Confirm Password:- <input type="password" name="confirmpassword"><br> -->
+        <button type="submit" class="submit">Login</button>
+        <!-- <input class="submit" type="submit" name="Login"> -->
+    </div>
+    </form>
+</body>
+</html>
