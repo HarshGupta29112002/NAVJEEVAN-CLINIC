@@ -34,6 +34,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
 
     'clinic',
+    'accounts',
 
     'django_extensions',
     'django.contrib.admin',
@@ -141,3 +142,8 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# This tells where to redirect the user upon a successful login using the LOGIN_REDIRECT_URL setting
+LOGIN_REDIRECT_URL = "home"  #------------------------------
+LOGOUT_REDIRECT_URL = "home" #------------------------------

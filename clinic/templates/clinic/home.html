@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -73,14 +71,7 @@ li a {
 
 </style>
 
-
 </head>
-
-
-
-
-
-
 
 <body>
     <nav class="navbar">
@@ -112,24 +103,24 @@ li a {
                 <th > UPDATE </th>
                 <th > DELETE </th>
 
-            <tr>
-        </thead>
-        <tbody style = "text-align:center;">
-            {% for item in patient %}
-            <tr>
-                <td > {{item.date}} </td>
-                <td > {{item.id}} </td>
-                <td > {{item.name}} </td>
-                <td > {{item.Paid_amount}} </td>
-                <td > {{item.Balance_amount}} </td>
-                <td > {{item.Total_amount}} </td>
-                <td > {{item.mobile_number}} </td>
-                <td> <a href="{% url 'patient_update' id=item.id %}">Update Profile</a> </td>
-                <td> <a href="{% url 'patient_delete' id=item.id %}">Delete Profile</a> </td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-    
-</body>
-</html>
+                <tr>
+                </thead>
+                <tbody style = "text-align:center;">
+                    {% for item in patient %}
+                    <tr>
+                        <td > {{item.date}} </td>
+                        <td > {{item.id}} </td>
+                        <td > {{item.name}} </td>
+                        <td > {{item.Paid_amount}} </td>
+                        <td > {{item.Balance_amount}} </td>
+                        <td > {{item.Total_amount}} </td>
+                        <td > {{item.mobile_number}} </td>
+                        <td> <a href="{% url 'patient_update' id=item.id %}">Update Profile</a> </td>
+                        <td> <a href="{% url 'patient_delete' id=item.id %}">Delete Profile</a> </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            
+        </body>
+        </html>

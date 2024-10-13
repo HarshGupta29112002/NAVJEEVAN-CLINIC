@@ -97,7 +97,3 @@ class patient(models.Model):
     # def __str__(self):
     #     return f'{self.systolic_pressure}/{self.diastolic_pressure}'
 
-
-class doctor(models.Model):
-    username = models.CharField(max_length=100)
-    password = models.CharField(max_length=100)
