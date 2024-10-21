@@ -1,22 +1,13 @@
-# from django.shortcuts import render
-
-# from django.http import HttpResponse
-
-# # Create your views here.
-
-# def home(request):
-#     return HttpResponse('helloworld')
-
-# -----------------------------------------------------------------------------------------------------
 
 from django.contrib.auth.decorators import login_required
-
+from django.contrib.auth import logout, authenticate, login
 from django.shortcuts import render, redirect
+from django.contrib.auth.forms import AuthenticationForm
 from django.http import HttpResponse
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView
 from django.views.generic import UpdateView
-from django.http import Http404, HttpResponseRedirect
+from django.http import Http404, HttpResponseRedirect, HttpResponseNotAllowed
 # from django.contrib.auth import authenticate, login
 from django.urls import reverse_lazy, reverse
 from django.views.generic import DeleteView
@@ -28,25 +19,6 @@ from .forms import PatientUpdateForm
 from .models import patient
 
 # Create your views here.
-
-# doctor_data = None
-
-# def index(request):
-#     data = doctor.objects.all()
-#     shopkeeper_data = {
-#         "username": data[0].username, 
-#         "password": data[0].password, 
-#     }
-        
-#     if request.POST:
-#         print(request.POST)
-#         username = request.POST['UserName']
-#         password = request.POST['password']
-#         if username == doctor_data['username'] and password == doctor_data['password']:
-#             return redirect('/doctor')
-            
-        
-#     return render(request ,"clinic\Login.html")
 
 
 
@@ -64,6 +36,28 @@ def create_patient(request):
     return redirect(request, 'clinic/patient_createview.html', {'form': form})
     # return reverse(request, 'clinic/home.html', {'form': form})
 
+# def login_view(request):
+#     if request.method == 'POST':
+#         form = AuthenticationForm(request, data=request.POST)
+#         if form.is_valid():
+#             username = form.cleaned_data.get('username')
+#             password = form.cleaned_data.get('password')
+#             user = authenticate(username=username, password=password)
+#             if user is not None:
+#                 login(request, user)
+#                 return redirect('home')  # Redirect to a home page or dashboard
+#     else:
+#         form = AuthenticationForm()
+#     return render(request, 'login.html', {'form': form})
+
+# def logout_view(request):
+#     if request.method == 'POST':
+#         logout(request)
+#         return redirect('login')
+#     else:
+#         return HttpResponseNotAllowed(['POST'])
+    # logout(request)  # Log the user out
+    # return redirect('login')  # Redirect to the login page or home page
 
 @login_required
 def home(request):
