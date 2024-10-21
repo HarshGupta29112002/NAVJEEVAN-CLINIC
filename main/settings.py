@@ -34,7 +34,6 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
 
     'clinic',
-    'accounts',
 
     'django_extensions',
     'django.contrib.admin',
