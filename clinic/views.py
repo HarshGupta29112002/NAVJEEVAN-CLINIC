@@ -22,6 +22,7 @@ from .models import patient
 
 
 
+
 def create_patient(request):
     if request.method == 'POST':
         form = PatientUpdateForm(request.POST)
@@ -29,37 +30,14 @@ def create_patient(request):
             print("Form is valid!")
             patient = form.save()
             print("Model instance saved:", patient)
-            return redirect('create_patient')
-            # return redirect('patient_list')
+            # return redirect('create_patient')
+            return redirect('patient_list')
     else:
         form = PatientUpdateForm()
-    return redirect(request, 'clinic/patient_createview.html', {'form': form})
+    return render(request, 'clinic/patient_createview.html', {'form': form})
+    # return redirect(request, 'clinic/patient_createview.html', {'form': form})
     # return reverse(request, 'clinic/home.html', {'form': form})
 
-# def login_view(request):
-#     if request.method == 'POST':
-#         form = AuthenticationForm(request, data=request.POST)
-#         if form.is_valid():
-#             username = form.cleaned_data.get('username')
-#             password = form.cleaned_data.get('password')
-#             user = authenticate(username=username, password=password)
-#             if user is not None:
-#                 login(request, user)
-#                 return redirect('home')  # Redirect to a home page or dashboard
-#     else:
-#         form = AuthenticationForm()
-#     return render(request, 'login.html', {'form': form})
-
-# def logout_view(request):
-#     if request.method == 'POST':
-#         logout(request)
-#         return redirect('login')
-#     else:
-#         return HttpResponseNotAllowed(['POST'])
-    # logout(request)  # Log the user out
-    # return redirect('login')  # Redirect to the login page or home page
-
-@login_required
 def home(request):
     template_name='clinic/home.html'
     context= {
@@ -81,20 +59,19 @@ class patientcreateview(CreateView):
         print("Model instance saved:", self.object)
         return super().form_valid(form)
     
-    def form_invalid(self, form):
-        print("Form is invalid")
-        print(form.errors)
-        return super().form_invalid(form)
+    # def form_invalid(self, form):
+    #     print("Form is invalid")
+    #     print(form.errors)
+    #     return super().form_invalid(form)
     
-
     def get_success_url(self):
         # print("Getting success URL...")
-        return reverse('patient_detail', kwargs={'id': str(self.object.id)})   # and if i would have used pk then  kwargs = {'pk': self.object.pk}
+        return reverse('patient_detail', kwargs={'id': self.object.id})   # and if i would have used pk then  kwargs = {'pk': self.object.pk}
     
 
 class patientprofileview(DetailView):
     model = patient
-    template_name = 'clinic/patient_detail.html'    #'clinic/patient_createview.html'
+    template_name = 'clinic/patient_detail.html'   
     context_object_name ='patient'
     slug_field = 'id'
 
@@ -102,6 +79,15 @@ class patientprofileview(DetailView):
         id = self.kwargs.get('id')
         return self.model.objects.get(id=id)
     
+    # def get_context_data(self, **kwargs):
+    #     context = super().get_context_data(**kwargs)
+    #     patient = self.get_object()
+    #     context['Medicine'] = patient.Medicine
+    #     context['Duration'] = patient.Duration
+    #     context['Days'] = patient.Days
+    #     return context
+    
+
 
 
 class PatientUpdateView(UpdateView):
@@ -122,7 +108,6 @@ class PatientUpdateView(UpdateView):
         # Assuming 'patient_detail' is the name of your patient detail view
         return reverse_lazy('patient_detail', kwargs={'id': self.object.id})
 
-
     def get_object(self, queryset=None):
         id = self.kwargs.get('id')
         print("Getting object with id:", id)
@@ -137,7 +122,6 @@ def my_view(request):       #This is for update view redirection
     # Your view logic here
     id = request.kwargs.get('id')  # Replace with the actual patient ID
     return HttpResponseRedirect(reverse('patient_detail', kwargs={'id': id}))
-
     
 
 class patientdeleteview(DeleteView):
